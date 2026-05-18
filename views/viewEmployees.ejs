@@ -12,7 +12,6 @@
 
     <div class="container">
 
-        <!-- Header with title and Add Employee button -->
         <div class="header">
             <div class="header-left">
                 <h1>👥 All Employees</h1>
@@ -21,7 +20,6 @@
             <a href="/employees/add" class="add-btn">+ Add Employee</a>
         </div>
 
-        <!-- If employees exist, show the table. Otherwise show empty state -->
         <% if (employees && employees.length > 0) { %>
             <div class="table-wrapper">
                 <table>
@@ -36,7 +34,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Loop through every employee from the JSON file -->
                         <% employees.forEach(function(emp) { %>
                             <tr>
                                 <td><span class="emp-number"><%= emp.employeeNumber %></span></td>
@@ -46,11 +43,9 @@
                                 <td><%= emp.role %></td>
                                 <td>
                                     <div class="actions">
-                                        <!-- View button - opens employee detail page (US 014) -->
                                         <a href="/employees/<%= emp.id %>" class="btn-view">View</a>
-                                        <!-- Edit & Delete - placeholders for future user stories -->
                                         <button class="btn-edit" onclick="handleEdit('<%= emp.employeeNumber %>')">Edit</button>
-                                        <button class="btn-delete" onclick="handleDelete('<%= emp.employeeNumber %>')">Delete</button>
+                                        <a href="/employees/delete/<%= emp.id %>" class="btn-delete">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -59,7 +54,6 @@
                 </table>
             </div>
         <% } else { %>
-            <!-- Empty state shown when no employees exist yet -->
             <div class="empty-state">
                 <div class="icon">📋</div>
                 <h3>No employees yet</h3>
@@ -67,6 +61,31 @@
             </div>
         <% } %>
 
+    </div>
+
+    <!-- DELETE CONFIRMATION POPUP -->
+    <div class="popup-overlay" id="deletePopup">
+        <div class="popup-box">
+            <div class="warning-icon">⚠️</div>
+            <h2>Delete Employee?</h2>
+            <p>Are you sure you want to delete <strong id="deleteEmployeeName"></strong>?<br>This action cannot be undone.</p>
+            <div class="popup-buttons">
+                <button class="btn-cancel" onclick="cancelDelete()">No, Cancel</button>
+                <button class="btn-confirm-delete" onclick="confirmDelete()">Yes, Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS POPUP -->
+    <div class="popup-overlay" id="successPopup">
+        <div class="popup-box">
+            <div class="success-icon">✓</div>
+            <h2>Deleted!</h2>
+            <p>Employee has been removed successfully.</p>
+            <div class="popup-buttons">
+                <button class="btn-ok" onclick="closeSuccessPopup()">OK</button>
+            </div>
+        </div>
     </div>
 
     <script src="/javascripts/viewEmployees.js"></script>

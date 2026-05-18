@@ -17,6 +17,8 @@ function validateEmployee(req, res, next) {
     next();
 }
 
+// ===== IMPORTANT: Order matters! Specific routes BEFORE generic /:id =====
+
 // GET /employees - show all employees
 router.get('/', (req, res) => {
     const employees = employeeService.getAllEmployees();
@@ -34,12 +36,24 @@ router.post('/add', validateEmployee, (req, res) => {
     res.json({ success: true, employee: createdEmployee });
 });
 
-// GET /employees/:id - show single employee detail
+// GET /employees/delete/:id - show delete confirmation page
+router.get('/delete/:id', (req, res) => {
+    const employee = employeeService.getEmployeeById(parseInt(req.params.id));
+    if (!employee) return res.status(404).send('Employee not found');
+    res.render('deleteEmployee', { employee: employee });
+});
+
+// POST /employees/delete/:id - actually delete
+router.post('/delete/:id', (req, res) => {
+    const deletedEmployee = employeeService.deleteEmployee(parseInt(req.params.id));
+    if (!deletedEmployee) return res.status(404).send('Employee not found');
+    res.redirect('/employees');
+});
+
+// GET /employees/:id - show single employee detail (MUST come AFTER /delete/:id and /add)
 router.get('/:id', (req, res) => {
     const employee = employeeService.getEmployeeById(parseInt(req.params.id));
-    if (!employee) {
-        return res.status(404).send('Employee not found');
-    }
+    if (!employee) return res.status(404).send('Employee not found');
     res.render('employeeDetail', { employee: employee });
 });
 

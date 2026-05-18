@@ -28,6 +28,17 @@ class EmployeeService {
         return this.readEmployees();
     }
 
+    // Delete an employee by ID
+    deleteEmployee(id) {
+        const employees = this.readEmployees();
+        const employeeIndex = employees.findIndex(emp => emp.id === id);
+        if (employeeIndex === -1) return null;
+
+        const deletedEmployee = employees.splice(employeeIndex, 1);
+        this.writeEmployees(employees);
+        return deletedEmployee[0];
+    }
+
     // Get a single employee by their ID
     getEmployeeById(id) {
         const employees = this.readEmployees();
