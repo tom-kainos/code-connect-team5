@@ -1,0 +1,29 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Update User</h1>
+
+    <form action="/users/update/<%= user.id %>" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="<%= user.name %>"><br>
+
+        <label for="Address">Address:</label><br>
+        <input type="text" id="Address" name="Address" value="<%= user.Address %>"><br>
+
+        <label for="Salary">Salary:</label><br>
+        <input type="number" id="Salary" name="Salary" value="<%= user.Salary %>"><br>
+
+        <label for="role">Role:</label><br>
+        <input type="text" id="role" name="role" value="<%= user.role %>"><br>
+
+        <input type="submit" value="Submit">
+    </form> 
+</body>
+</html>
