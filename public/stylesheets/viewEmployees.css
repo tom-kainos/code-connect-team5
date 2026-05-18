@@ -196,6 +196,26 @@ tbody tr:last-child td { border-bottom: none; }
     margin-bottom: 8px;
 }
 
+.btn-view {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    background: #48bb78;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-view:hover {
+    background: #2f855a;
+    transform: translateY(-1px);
+}
+
 @media (max-width: 600px) {
     .container { padding: 20px; }
     th, td { padding: 10px 8px; font-size: 12px; }
