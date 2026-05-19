@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job Role</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/viewJobRoles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h1>Edit Job Role</h1>
+                <p>Update the details for this job role</p>
+            </div>
+            <a href="/job-roles" class="add-btn">Back to Job Roles</a>
+        </div>
+
+        <form action="/job-roles/edit/<%= jobRole.id %>" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="<%= jobRole.name %>" required>
+
+            <label for="level">Level</label>
+            <input type="text" id="level" name="level" value="<%= jobRole.level %>" required>
+
+            <label for="capability">Capability</label>
+            <input type="text" id="capability" name="capability" value="<%= jobRole.capability %>" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required><%= jobRole.description %></textarea>
+
+            <button type="submit" class="form-submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -22,4 +22,32 @@ router.post('/add', (req, res) => {
     res.redirect('/job-roles');
 });
 
+// View a single job role
+router.get('/:id', (req, res) => {
+    const jobRole = jobRoleService.getJobRoleById(parseInt(req.params.id));
+    if (!jobRole) return res.status(404).send('Job role not found');
+    res.render('viewJobRole', { jobRole: jobRole });
+});
+
+// Render edit job role form pre-populated with existing data
+router.get('/edit/:id', (req, res) => {
+    const jobRole = jobRoleService.getJobRoles().find(jr => jr.id === parseInt(req.params.id));
+    if (!jobRole) return res.status(404).send('Job role not found');
+    res.render('editJobRole', { jobRole: jobRole });
+});
+
+// Handle edit job role form submission
+router.post('/edit/:id', (req, res) => {
+    const updated = jobRoleService.updateJobRole(parseInt(req.params.id), req.body);
+    if (!updated) return res.status(404).send('Job role not found');
+    res.redirect('/job-roles');
+});
+
+// Handle delete job role
+router.post('/delete/:id', (req, res) => {
+    const deleted = jobRoleService.deleteJobRole(parseInt(req.params.id));
+    if (!deleted) return res.status(404).send('Job role not found');
+    res.redirect('/job-roles');
+});
+
 module.exports = router;
