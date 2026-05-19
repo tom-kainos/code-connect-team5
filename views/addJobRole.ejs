@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+    <%- include('partials/navBar') %>
     <h1>Add Job Role</h1>
 
     <form action="/job-roles/add" method="post">
@@ -24,5 +25,7 @@
 
         <button type="submit">Add Job Role</button>
     </form>
+
+    <%- include('partials/footer') %>
 </body>
 </html>

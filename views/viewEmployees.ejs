@@ -10,6 +10,8 @@
 
 <body>
 
+<%- include('partials/navBar') %>
+
     <div class="container">
 
         <!-- Header with title and Add Employee button -->
@@ -30,7 +32,7 @@
                             <th>Emp No.</th>
                             <th>Name</th>
                             <th>Address</th>
-                            <th class="salary-column">Salary (Per Annum)</th>
+                            <th>Salary (Per Annum)</th>
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
@@ -50,8 +52,8 @@
                                         <a href="/employees/<%= emp.id %>" class="btn-view">View</a>
                                         <!-- Edit button - opens update employee page (US003) -->
                                         <button class="btn-edit" onclick="handleEdit(<%= emp.id %>)">Edit</button>
-                                        <!-- Delete button -->
-                                        <button class="btn-delete" onclick="handleDelete(<%= emp.id %>, '<%= emp.name %>')">Delete</button>
+                                        <!-- Delete button - placeholder for future user story -->
+                                        <button class="btn-delete" onclick="handleDelete('<%= emp.employeeNumber %>')">Delete</button>
                                     </div>
                                 </td>
                             </tr>
@@ -70,6 +72,8 @@
 
     </div>
 
+    <%- include('partials/footer') %>
+    
     <script src="/javascripts/viewEmployees.js"></script>
 
 </body>

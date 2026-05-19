@@ -16,6 +16,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 body::before,
 body::after {
     content: '';
@@ -61,6 +63,56 @@ body::after { width: 400px; height: 400px; bottom: -150px; right: -150px; animat
     gap: 15px;
 }
 
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.navbar-links a {
+    color: #283583;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 40px;
+}
+
+/* Footer styles: match navbar appearance for pages using this stylesheet */
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin-top: 40px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #283583;
+}
 .header-left h1 {
     color: #2d3748;
     font-size: 28px;
@@ -117,10 +169,6 @@ th {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.salary-column {
-    min-width: 190px;
 }
 
 td {
