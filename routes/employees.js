@@ -14,11 +14,21 @@ function validateEmployee(req, res, next) {
     if (!name || !address || !salary || !role) {
         return res.status(400).json({ success: false, message: 'All fields are required.' });
     }
+
+    if (address.length < 7 || address.length > 8) {
+        return res.status(400).json({ 
+            success: false, 
+            message: 'Address must be between 7 and 8 characters long.' 
+        });
+    }
+
     if (Number(salary) <= 0) {
         return res.status(400).json({ success: false, message: 'Salary must be a positive number.' });
     }
+
     next();
 }
+
 
 // GET /employees - show all employees
 router.get('/', (req, res) => {
