@@ -10,6 +10,8 @@
 
 <body>
 
+    <%- include('partials/navBar') %>
+
     <!-- Back to all employees button -->
     <div class="top-nav">
         <a href="/employees" class="back-btn">← Back to All Employees</a>
@@ -49,7 +51,7 @@
         </div>
 
         <div class="detail-row">
-            <span class="detail-label">Salary</span>
+            <span class="detail-label">Salary (Per Annum) </span>
             <span class="detail-value salary">£<%= Number(employee.salary).toLocaleString() %></span>
         </div>
 
@@ -62,6 +64,8 @@
     </div>
 
     <script src="/javascripts/employeeDetail.js"></script>
+
+    <%- include('partials/footer') %>
 
 </body>
 

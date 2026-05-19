@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
+    <%- include('partials/navBar') %>
     <h1>Welcome</h1>
 
     <p>You are logged in as <strong><%= email %></strong></p>
@@ -14,5 +15,7 @@
     <form action="/login/logout" method="get">
         <button type="submit">Logout</button>
     </form>
+
+    <%- include('partials/footer') %>
 </body>
 </html>

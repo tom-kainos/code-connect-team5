@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/addEmployee.css">
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="form-container">
+        <div class="form-header">
+            <div class="icon">🔒</div>
+            <h1>Login</h1>
+            <p class="subtitle">Enter your credentials to access the dashboard</p>
+        </div>
 
-    <% if (error) { %>
-        <p><%= error %></p>
-    <% } %>
+        <% const errorMessage = typeof error !== 'undefined' ? error : null; %>
+        <% if (errorMessage) { %>
+            <p class="field-error general-error"><%= errorMessage %></p>
+        <% } %>
 
-    <form action="/login" method="post">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <form action="/login" method="post" novalidate>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= email || '' %>" required>
+            </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>

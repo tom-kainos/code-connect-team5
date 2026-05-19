@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <%- include('partials/navBar') %>
     <h1>Add New User</h1>
 
     <form action="/users/add" method="post">
@@ -22,5 +23,7 @@
 
         <input type="submit" value="Submit">
     </form> 
+
+    <%- include('partials/footer') %>
 </body>
 </html>

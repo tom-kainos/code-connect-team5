@@ -14,5 +14,13 @@
     "role": "Web Developer",
     "id": 2,
     "employeeNumber": "EMP002"
+  },
+  {
+    "name": "jOHNY",
+    "address": "9787",
+    "salary": 789,
+    "role": "Software Engineer LV 2",
+    "id": 3,
+    "employeeNumber": "EMP003"
   }
 ]

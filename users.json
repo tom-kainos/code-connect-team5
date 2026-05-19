@@ -1,8 +1,14 @@
 [
   {
-    "name": "Jimmy",
+    "name": "test",
     "email": "test@test.com",
     "role": "Software Engineer",
     "id": 1
+  },
+  {
+    "name": "sdl;",
+    "email": "liam.wrote.this@hotmail.co.uk",
+    "role": "TESTMAN",
+    "id": 2
   }
 ]
