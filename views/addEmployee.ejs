@@ -45,7 +45,12 @@
 
             <div class="form-group">
                 <label for="role">Role</label>
-                <input type="text" id="role" name="role" placeholder="Software Engineer">
+                <select id="role" name="role">
+                    <option value="">Select a role</option>
+                    <% jobRoles.forEach(jobRole => { %>
+                        <option value="<%= jobRole.name %>"><%= jobRole.name %></option>
+                    <% }); %>
+                </select>
                 <div class="error-msg" id="roleError">Role is required</div>
             </div>
 
