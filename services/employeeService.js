@@ -28,7 +28,6 @@ class EmployeeService {
         return this.readEmployees();
     }
 
-    // Get a single employee by their ID
     getEmployeeById(id) {
         const employees = this.readEmployees();
         return employees.find(emp => emp.id === id);
