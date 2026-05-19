@@ -62,6 +62,16 @@ class EmployeeService {
         this.writeEmployees(employees);
         return employee;
     }
+
+    deleteEmployee(id) {
+        const employees = this.readEmployees();
+        const filteredEmployees = employees.filter(emp => emp.id !== id);
+        if (filteredEmployees.length === employees.length) {
+            return false; // Employee not found
+        }
+        this.writeEmployees(filteredEmployees);
+        return true;
+    }
 }
 
 module.exports = EmployeeService;

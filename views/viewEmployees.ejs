@@ -50,8 +50,8 @@
                                         <a href="/employees/<%= emp.id %>" class="btn-view">View</a>
                                         <!-- Edit button - opens update employee page (US003) -->
                                         <button class="btn-edit" onclick="handleEdit(<%= emp.id %>)">Edit</button>
-                                        <!-- Delete button - placeholder for future user story -->
-                                        <button class="btn-delete" onclick="handleDelete('<%= emp.employeeNumber %>')">Delete</button>
+                                        <!-- Delete button -->
+                                        <button class="btn-delete" onclick="handleDelete(<%= emp.id %>, '<%= emp.name %>')">Delete</button>
                                     </div>
                                 </td>
                             </tr>

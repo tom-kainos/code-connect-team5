@@ -61,4 +61,13 @@ router.get('/:id', (req, res) => {
     res.render('employeeDetail', { employee: employee });
 });
 
+// DELETE /employees/:id - delete an employee
+router.delete('/:id', (req, res) => {
+    const deleted = employeeService.deleteEmployee(parseInt(req.params.id));
+    if (!deleted) {
+        return res.status(404).json({ success: false, message: 'Employee not found' });
+    }
+    res.json({ success: true, message: 'Employee deleted successfully' });
+});
+
 module.exports = router;
