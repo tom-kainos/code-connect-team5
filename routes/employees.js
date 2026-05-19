@@ -4,6 +4,9 @@ var router = express.Router();
 const EmployeeService = require('../services/employeeService');
 const employeeService = new EmployeeService();
 
+const JobRoleService = require('../services/jobRoleService');
+const jobRoleService = new JobRoleService();
+
 // Validation middleware
 function validateEmployee(req, res, next) {
     const { name, address, salary, role } = req.body;
@@ -25,7 +28,8 @@ router.get('/', (req, res) => {
 
 // GET /employees/add - show form
 router.get('/add', (req, res) => {
-    res.render('addEmployee');
+    const jobRoles = jobRoleService.getJobRoles();
+    res.render('addEmployee', { jobRoles: jobRoles });
 });
 
 // POST /employees/add - submit form
@@ -40,7 +44,8 @@ router.get('/update/:id', (req, res) => {
     if (!employee) {
         return res.status(404).send('Employee not found');
     }
-    res.render('updateEmployee', { employee: employee });
+    const jobRoles = jobRoleService.getJobRoles();
+    res.render('updateEmployee', { employee: employee, jobRoles: jobRoles });
 });
 
 // POST /employees/update/:id - handle update form submission
